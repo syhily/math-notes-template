@@ -3,8 +3,14 @@ name: Build
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'sample/**'
+      - 'template/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'sample/**'
+      - 'template/**'
 
 jobs:
   build:
