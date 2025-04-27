@@ -3,22 +3,20 @@
 \def\path{../config}
 \input{../config/_config}
 \begin{document}
-% \input{../config/cover}
 \else
 \fi
 
-% content
 \chapter{自定义命令的使用}
 
     自定义命令是作者自己常用的，或是遇到了问题定义的命令，使用者可自行增删改，以适应自己的需求。
 
     \textbf{微分符号和实数集}
-    
+
     \begin{lstlisting}[language=TeX]
         \d x
         \R
     \end{lstlisting}
-% 
+%
     \[ \d x \quad \R \]
 
     \myspace{1}
@@ -82,7 +80,7 @@
     \end{table}
 
     效果对比
-    
+
     \begin{table}[htbp!]
         \centering
         \begin{tabular}{|l|l|}
@@ -101,7 +99,7 @@
             f(x)=\begin{mycases}[2.5]
                 \dfrac{\sin{2x} }{x} & x<0     \\
                 (x+k)^2               & x \ge 0
-            \end{mycases}    
+            \end{mycases}
         \]
     \end{lstlisting}
 
@@ -129,7 +127,7 @@
             \begin{myvmatrix}[1.5]\d y\d z & \d z\d x & \d x\d y \\[1ex]
                 \dfrac{\partial }{\partial x} & \dfrac{\partial }{\partial y} & \dfrac{\partial Q}{\partial z}  \\[1.2ex]
                 P & Q & R \\
-            \end{myvmatrix} = \oint_{\Gamma}P\d x +Q\d y+R\d z    
+            \end{myvmatrix} = \oint_{\Gamma}P\d x +Q\d y+R\d z
         \]
     \end{lstlisting}
 
@@ -161,7 +159,7 @@
     当 linespread 设置为2时，cases 和 vmatrix 环境的行高也会相应改变。
 
     因此建议将 linespread 设置为 1.6，使用 cases 和 vmatrix 环境时，行高不会改变。
-    
+
     \myspace{1}
 
     \textbf{表格内长内容换行}
@@ -180,7 +178,7 @@
     \end{lstlisting}
 
     主要代码
-    
+
     \begin{lstlisting}[language=TeX]
         % ...
         给出$2k$项：\tabincell{c}{$e^{\alpha{x}} \big[(C_1+C_2x+\dots+C_kx^{k-1})\cos\beta{x}$ \\ $ + (D_1+D_2x+\dots+D_kx^{k-1})\sin\beta{x} \big]$}
@@ -222,7 +220,6 @@
     \[ \dive \quad \rotn \]
 
     自定义命令使用者可根据自己的情况修改
-    
 
 \ifx\allfiles\undefined
 \end{document}

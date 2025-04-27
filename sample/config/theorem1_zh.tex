@@ -1,4 +1,4 @@
-\usepackage[strict]{changepage} 
+\usepackage[strict]{changepage}
 \usepackage{framed}
 
 \definecolor{greenshade}{rgb}{0.90,1,0.92}
@@ -16,7 +16,6 @@
 \newtheorem{myCriterion}[myLemma]{\indent 准则}
 \newtheorem*{myRemark}{\indent 注}
 \newtheorem{myProposition}{\indent 命题}[section]
-
 
 \newenvironment{formal}[2][]{%
     \def\FrameCommand{%
@@ -40,8 +39,5 @@
 \newenvironment{proposition}{\begin{formal}[RoyalPurple]{purple}\vspace{-\baselineskip / 2}\begin{myProposition}}{\end{myProposition}\end{formal}}
 
 \newtheorem{example}{\indent \color{SeaGreen}{例}}[section]
-% \renewenvironment{proof}{\indent\textcolor{SkyBlue}{\textbf{证明.}}\;}{\qed\par}
-% \newenvironment{solution}{\indent\textcolor{SkyBlue}{\textbf{解.}}\;}{\qed\par}
-
 \renewcommand{\proofname}{\indent\textbf{\textcolor{TealBlue}{证明}}}
 \newenvironment{solution}{\begin{proof}[\indent\textbf{\textcolor{TealBlue}{解}}]}{\end{proof}}
