@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
+        uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: |
+            apk add make font-noto-cjk ttf-freefont
+            make
+      - name: Collect
+        run: |
+          export GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")
+          mv template/template.pdf "template-$GIT_HASH.pdf"
+          mv sample/sample.pdf "sample-$GIT_HASH.pdf"
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: Template
+          path: |
+            sample-*.pdf
+            template-*.pdf
