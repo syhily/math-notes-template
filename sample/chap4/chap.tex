@@ -1,0 +1,229 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+% content
+\chapter{自定义命令的使用}
+
+    自定义命令是作者自己常用的，或是遇到了问题定义的命令，使用者可自行增删改，以适应自己的需求。
+
+    \textbf{微分符号和实数集}
+    
+    \begin{lstlisting}[language=TeX]
+        \d x
+        \R
+    \end{lstlisting}
+% 
+    \[ \d x \quad \R \]
+
+    \myspace{1}
+
+    \textbf{空行}
+
+    \begin{lstlisting}[language=TeX]
+        \myspace{1} % 参数表示空几行
+    \end{lstlisting}
+
+    空行演示开始
+
+    \myspace{1}
+
+    空行演示结束
+
+    \myspace{1}
+
+    \textbf{表格行高调整}，依赖宏包\textbf{stackengine}
+
+    \begin{lstlisting}[language=TeX]
+        %...
+        \xrowht{10pt}
+        %...
+    \end{lstlisting}
+
+    \begin{lstlisting}[language=TeX]
+        \begin{table}[htbp!]
+            \centering
+            \begin{tabular}{|l|l|}
+                \hline
+                $(C)' = 0$                                                        & $(x^\mu)' = \mu{x}^{\mu - 1}$               \\
+                \hline
+                正弦：$(\sin{x})' = \cos{x}$                                      & 余弦：$(\cos{x})' = -\sin{x}$               \\
+                \hline\xrowht{25pt}
+                $\dfrac{1}{x\ln{a}} \enspace (a>0 \land a \ne 1) $ & $(\ln{x})' = \dfrac{1}{x}$                  \\
+                \hline\xrowht{25pt}
+                $(\arcsin{x})' = \dfrac{1}{\sqrt{1-x^2}}$                         & $(\arccos{x})' = -\dfrac{1}{\sqrt{1-x^2}}$  \\
+                \hline\xrowht{25pt}
+                $(\arctan{x})' = \dfrac{1}{1+x^2}$                                & $(\text{arccot}\;{x})' = -\dfrac{1}{1+x^2}$ \\
+                \hline
+            \end{tabular}
+        \end{table}
+    \end{lstlisting}
+
+    \begin{table}[htbp!]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            $(C)' = 0$                                                        & $(x^\mu)' = \mu{x}^{\mu - 1}$               \\
+            \hline
+            正弦：$(\sin{x})' = \cos{x}$                                      & 余弦：$(\cos{x})' = -\sin{x}$               \\
+            \hline\xrowht{25pt}
+            $(\log_a{x})' = \dfrac{1}{x\ln{a}} \enspace (a>0 \land a \ne 1) $ & $(\ln{x})' = \dfrac{1}{x}$                  \\
+            \hline\xrowht{25pt}
+            $(\arcsin{x})' = \dfrac{1}{\sqrt{1-x^2}}$                         & $(\arccos{x})' = -\dfrac{1}{\sqrt{1-x^2}}$  \\
+            \hline\xrowht{25pt}
+            $(\arctan{x})' = \dfrac{1}{1+x^2}$                                & $(\text{arccot}\;{x})' = -\dfrac{1}{1+x^2}$ \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    效果对比
+    
+    \begin{table}[htbp!]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            $(\arcsin{x})' = \dfrac{1}{\sqrt{1-x^2}}$                         & $(\arccos{x})' = -\dfrac{1}{\sqrt{1-x^2}}$  \\
+            \hline
+            $(\arctan{x})' = \dfrac{1}{1+x^2}$                                & $(\text{arccot}\;{x})' = -\dfrac{1}{1+x^2}$ \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    自定义行高的 cases 和 vmatrix 环境，通过中括号内的参数修改环境行高
+
+    \begin{lstlisting}[language=TeX]
+        \[
+            f(x)=\begin{mycases}[2.5]
+                \dfrac{\sin{2x} }{x} & x<0     \\
+                (x+k)^2               & x \ge 0
+            \end{mycases}    
+        \]
+    \end{lstlisting}
+
+    \[
+        f(x)=\begin{mycases}[2.5]
+            \dfrac{\sin{2x} }{x} & x<0     \\
+            (x+k)^2               & x \ge 0
+        \end{mycases}
+    \]
+
+    效果对比
+
+    \[
+        f(x)=\begin{cases}
+            \dfrac{\sin{2x} }{x} & x<0     \\
+            (x+k)^2               & x \ge 0
+        \end{cases}
+    \]
+
+    \myspace{1}
+
+    \begin{lstlisting}[language=TeX]
+        \[
+            \iint_{\Sigma}
+            \begin{myvmatrix}[1.5]\d y\d z & \d z\d x & \d x\d y \\[1ex]
+                \dfrac{\partial }{\partial x} & \dfrac{\partial }{\partial y} & \dfrac{\partial Q}{\partial z}  \\[1.2ex]
+                P & Q & R \\
+            \end{myvmatrix} = \oint_{\Gamma}P\d x +Q\d y+R\d z    
+        \]
+    \end{lstlisting}
+
+    \[
+        \iint_{\Sigma}
+        \begin{myvmatrix}[1.5]\d y\d z & \d z\d x & \d x\d y \\[1ex]
+            \dfrac{\partial }{\partial x} & \dfrac{\partial }{\partial y} & \dfrac{\partial Q}{\partial z}  \\[1.2ex]
+            P & Q & R \\
+        \end{myvmatrix} = \oint_{\Gamma}P\d x +Q\d y+R\d z
+    \]
+
+    效果对比
+
+    \[
+        \iint_{\Sigma}
+        \begin{vmatrix}\d y\d z & \d z\d x & \d x\d y \\[1ex]
+            \dfrac{\partial }{\partial x} & \dfrac{\partial }{\partial y} & \dfrac{\partial Q}{\partial z}  \\[1.2ex]
+            P & Q & R \\
+        \end{vmatrix} = \oint_{\Gamma}P\d x +Q\d y+R\d z
+    \]
+
+    好像没有什么区别，实际上自定义行高的 cases 和 vmatrix 环境主要是为了消除以下全局命令的影响
+    \begin{lstlisting}[language=TeX]
+        % package.tex
+        \linespread{1.6}
+        % ...
+    \end{lstlisting}
+
+    当 linespread 设置为2时，cases 和 vmatrix 环境的行高也会相应改变。
+
+    因此建议将 linespread 设置为 1.6，使用 cases 和 vmatrix 环境时，行高不会改变。
+    
+    \myspace{1}
+
+    \textbf{表格内长内容换行}
+
+    \begin{lstlisting}[language=TeX]
+        \begin{table}[htbp!]
+            \centering
+            \begin{tabular}{|c|c|}
+                \hline
+                $k$重实根$r$                                        & 给出$k$项：$e^{rx}(C_1+C_2x+\dots+C_kx^{k-1})$                                         \\
+                \hline
+                一对$k$重复根$r_{1,2} = \alpha \pm \beta\mathrm{i}$ & 给出$2k$项：\tabincell{c}{$e^{\alpha{x}} \big[(C_1+C_2x+\dots+C_kx^{k-1})\cos\beta{x}$ \\ $+ (D_1+D_2x+\dots+D_kx^{k-1})\sin\beta{x} \big]$} \\
+                \hline
+            \end{tabular}
+        \end{table}
+    \end{lstlisting}
+
+    主要代码
+    
+    \begin{lstlisting}[language=TeX]
+        % ...
+        给出$2k$项：\tabincell{c}{$e^{\alpha{x}} \big[(C_1+C_2x+\dots+C_kx^{k-1})\cos\beta{x}$ \\ $ + (D_1+D_2x+\dots+D_kx^{k-1})\sin\beta{x} \big]$}
+    \end{lstlisting}
+
+    \begin{table}[htbp!]
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            特征方程的根                                        & 微分方程通解中的对应项                                                                 \\
+            \hline
+            单实根$r$                                           & 给出一项：$Ce^{rx}$                                                                    \\
+            \hline
+            一对单复根$r_{1,2} = \alpha \pm \beta\mathrm{i}$    & 给出两项：$e^{\alpha{x}}(C_1\cos\beta{x}+C_2\sin\beta{x})$                             \\
+            \hline
+            $k$重实根$r$                                        & 给出$k$项：$e^{rx}(C_1+C_2x+\dots+C_kx^{k-1})$                                         \\
+            \hline
+            一对$k$重复根$r_{1,2} = \alpha \pm \beta\mathrm{i}$ & 给出$2k$项：\tabincell{c}{$e^{\alpha{x}} \big[(C_1+C_2x+\dots+C_kx^{k-1})\cos\beta{x}$ \\ $+ (D_1+D_2x+\dots+D_kx^{k-1})\sin\beta{x} \big]$} \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \myspace{1}
+
+    \textbf{平行符号}
+
+    \begin{lstlisting}[language=TeX]
+        \[ AB \pll CD \]
+    \end{lstlisting}
+
+    \[ AB \pll CD \]
+
+    \textbf{散度 旋度}
+
+    \begin{lstlisting}[language=TeX]
+        \[ \dive \quad \rotn \]
+    \end{lstlisting}
+
+    \[ \dive \quad \rotn \]
+
+    自定义命令使用者可根据自己的情况修改
+    
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

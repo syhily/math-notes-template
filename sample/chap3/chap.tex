@@ -1,0 +1,69 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+% ##########
+
+\chapter{图片}
+
+图片已经配置相关文件夹，将所有图片文件放在\textbf{figure}文件夹即可，\textcolor{OrangeRed}{引入图片无需路径}
+
+\begin{lstlisting}[language=TeX]
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.5\textwidth]{11-19.png}
+        \caption{说明}
+        \label{fig:fig1} 
+    \end{figure}
+\end{lstlisting}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{11-19.png}
+    \caption{这是一张图片}
+    \label{fig:fig1}
+\end{figure}
+
+
+\begin{lstlisting}[language=TeX]
+    \centering
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.35]{1.png}
+        \caption{2}
+    \end{minipage}
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.35]{2.png}
+        \caption{2}
+    \end{minipage}
+\end{lstlisting}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{0-4.png}
+        \caption{图1}
+    \end{minipage}
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{0-5.png}
+        \caption{图2}
+    \end{minipage}
+\end{figure}
+
+\begin{remark}
+    需要注意，在使用\textbf{theorem1}的配置定理环境时，无法在环境内部使用\textbf{figure}环境，会报错。
+\end{remark}
+
+% #########
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

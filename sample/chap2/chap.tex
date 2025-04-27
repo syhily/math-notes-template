@@ -1,0 +1,152 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+% ##########
+
+\chapter{常用定理环境使用}
+\section{基础使用}
+
+\textbf{定义}环境的使用，\textcolor{OrangeRed}{定义环境单独编号}
+\begin{lstlisting}[language=TeX]
+    \begin{defn}[名称、可不写]
+        % content
+    \end{defn}
+\end{lstlisting}
+
+\begin{definition}
+    设非空集合$X,\;Y$满足对应法则$f$，对$X$中任意一个元素$x$，按法则$f$，在$Y$中都有唯一确定的元素$y$与之对应，那么称$f$为$X$到$Y$的映射，记$f:X \to Y$.
+\end{definition}
+
+\myspace{1}
+
+\textbf{定理}环境的使用，\textcolor{OrangeRed}{定理、引理、准则公用一个编号}
+\begin{lstlisting}[language=TeX]
+    \begin{thm}[名称、可不写]
+        % content
+    \end{thm}
+\end{lstlisting}
+
+\begin{theorem}[拉格朗日中值定理]
+    若函数$f(x)$满足，在闭区间$[a,b]$上连续、在开区间$(a,b)$内可导，那么在$(a,b)$上至少有一点$\xi$（$a<\xi<b$），使得
+    \begin{equation}\label{eq:3-1}
+        f(b)-f(a) = f'(\xi)(b-a)
+    \end{equation}
+    成立.
+\end{theorem}
+
+\myspace{1}
+
+\textbf{引理}环境的使用
+\begin{lstlisting}[language=TeX]
+    \begin{lemma}[名称、可不写]
+        % content
+    \end{lemma}
+\end{lstlisting}
+
+\begin{lemma}[费马引理]
+    函数$f(x)$在点$x_0$的某邻域内有定义，并且在点$x_0$处可导，如果对于任意$x \in U(x_0)$，都有$f(x)\le f(x_0)$或$f(x)\ge f(x_0)$，那么$f'(x_0) = 0$.
+\end{lemma}
+
+\myspace{1}
+
+\textbf{推论}环境的使用
+\begin{lstlisting}[language=TeX]
+    \begin{corollary}[名称、可不写]
+        % content
+    \end{corollary}
+\end{lstlisting}
+
+\begin{corollary}
+    如果在区间$[a,b]$上$f(x)\le g(x)$，那么有
+    \[
+        \int_{a}^{b}f(x)\d x \le \int_{a}^{b}g(x)\d x
+    \]
+\end{corollary}
+
+\myspace{1}
+
+\textbf{准则}环境的使用
+\begin{lstlisting}[language=TeX]
+    \begin{criterion}[名称、可不写]
+        % content
+    \end{criterion}
+\end{lstlisting}
+
+\begin{criterion}[夹逼准则]
+    若$x \in \mathring{U}(x_0)$（或$|x|>M$），有$g(x)\le f(x) \le h(x)$，且
+    \[
+        \lim g(x) = \lim h(x) = A
+    \]
+    那么$\lim f(x)=A$.
+\end{criterion}
+
+\myspace{1}
+
+\textcolor{OrangeRed}{说明、解、证明环境不编号，命题、例题独立编号}
+
+\textbf{例题、解、证明}环境的使用
+\begin{lstlisting}[language=TeX]
+    \begin{rmk}[名称、可不写]
+        % content
+    \end{rmk}
+\end{lstlisting}
+
+\begin{remark}
+    这是一段说明
+\end{remark}
+
+\myspace{1}
+
+\textbf{命题}环境的使用
+\begin{lstlisting}[language=TeX]
+    \begin{proposition}[名称、可不写]
+        % content
+    \end{proposition}
+\end{lstlisting}
+
+\begin{proposition}
+    这是一段命题
+\end{proposition}
+
+\myspace{1}
+
+\textbf{例题、解、证明}环境的使用
+\begin{lstlisting}[language=TeX]
+    \begin{example}
+        % content
+    \end{example}
+
+    \begin{solution}
+        % content
+    \end{solution}
+\end{lstlisting}
+
+\begin{example}
+    设积分$\displaystyle\int_C xy^2\d x +y \varphi(x)\d y$与路径无关，其中$\varphi$有连续导数，$C$是点$(0,0)$到点$(1,1)$的线段，且$\varphi(0)=0$，计算这个积分.
+\end{example}
+\begin{solution}
+    记$P = xy^2,\; Q = y\varphi(x)$，则
+    \[
+        P_y =2xy ,\enspace Q_x = y\varphi'(x)
+    \]
+    而$Q_x = P_y$，则有$\varphi'(x) = 2x$，两边积分有$\varphi(x) = x^2+C$，又$\varphi(0)=0$，于是$C=0$，即$\varphi(x) = x^2$，所求积分
+    \[
+        \int_{(0,0)}^{(1,1)} xy^2\d x +y x^2\d y  = \int_0^1 y \d y = \frac{1}{2}
+    \]
+\end{solution}
+
+\begin{proof}
+    记$P = xy^2,\; Q = y\varphi(x)$，则...
+\end{proof}
+
+% #########
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

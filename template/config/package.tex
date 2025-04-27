@@ -1,0 +1,74 @@
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage[colorlinks, linkcolor=black]{hyperref}
+\usepackage{stackengine}
+\usepackage{yhmath}
+\usepackage{extarrows}
+% \usepackage{unicode-math}
+\usepackage{esint}
+
+\usepackage{fancyhdr}
+\usepackage[dvipsnames, svgnames]{xcolor}
+\usepackage{listings}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{NavyBlue}{RGB}{0,0,128}
+\definecolor{Rhodamine}{RGB}{255,0,255}
+\definecolor{PineGreen}{RGB}{0,128,0}
+
+\graphicspath{ {figures/},{../figures/}, {config/}, {../config/} }
+
+\linespread{1.6}
+
+\geometry{
+    top=25.4mm, 
+    bottom=25.4mm, 
+    left=20mm, 
+    right=20mm, 
+    headheight=2.17cm, 
+    headsep=4mm, 
+    footskip=12mm
+}
+
+\setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setitemize[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+
+\lstset{
+    language=Mathematica,
+    basicstyle=\tt,
+    breaklines=true,
+    keywordstyle=\bfseries\color{NavyBlue}, 
+    emphstyle=\bfseries\color{Rhodamine},
+    commentstyle=\itshape\color{black!50!white}, 
+    stringstyle=\bfseries\color{PineGreen!90!black},
+    columns=flexible,
+    numbers=left,
+    numberstyle=\footnotesize,
+    frame=tb,
+    breakatwhitespace=false,
+} 
+
+\lstset{
+    language=TeX, % 设置语言为 TeX
+    basicstyle=\ttfamily, % 使用等宽字体
+    breaklines=true, % 自动换行
+    keywordstyle=\bfseries\color{NavyBlue}, % 关键字样式
+    emphstyle=\bfseries\color{Rhodamine}, % 强调样式
+    commentstyle=\itshape\color{black!50!white}, % 注释样式
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 字符串样式
+    columns=flexible, % 列的灵活性
+    numbers=left, % 行号在左侧
+    numberstyle=\footnotesize, % 行号字体大小
+    frame=tb, % 顶部和底部边框
+    breakatwhitespace=false % 不在空白处断行
+}
+
+% \begin{lstlisting}[language=TeX] ... \end{lstlisting}

@@ -1,0 +1,31 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+% content
+\chapter{其他}
+
+二重积分，依赖宏包\textbf{esint}
+
+\begin{lstlisting}[language=TeX]
+    \[ 
+        \oiint_S \mathbf{F} \cdot d\mathbf{S} 
+    \]
+\end{lstlisting}
+
+\[ \oiint_S \mathbf{F} \cdot d\mathbf{S} \]
+
+如果你要从第一章开始，那么在\textbf{config.tex}中注释掉以下命令
+\begin{lstlisting}[language=TeX]
+    \setcounter{chapter}{-1}
+\end{lstlisting}
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

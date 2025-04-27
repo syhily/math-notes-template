@@ -1,0 +1,28 @@
+\input{\path/package.tex}
+
+% 定理环境设置
+\input{\path/theorem1.tex}
+
+\input{\path/custom.tex}
+
+% 修改参数改变封面样式，0 默认原始封面、内置其他1、2、3种封面样式
+\def\myIndex{0}
+
+
+\ifnum\myIndex>0
+    \input{\path/cover_package_\myIndex}
+\fi
+
+\def\myTitle{标题：一份LaTeX笔记模板}
+\def\myAuthor{作者名称}
+\def\myDateCover{封面日期： \today}
+\def\myDateForeword{前言页显示日期： \today}
+\def\myForeword{前言标题}
+\def\myForewordText{
+    
+    这是一个基于\LaTeX{}的模板，用于撰写学习笔记。
+
+    模板旨在提供一个简单、易用的框架，以便你能够专注于内容，而不是排版细节，如不是专业者，不建议使用者在模板细节上花费太多时间，而是直接使用模板进行笔记撰写。遇到问题，再进行调整解决。
+}
+\def\mySubheading{副标题}
+

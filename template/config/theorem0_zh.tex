@@ -1,0 +1,15 @@
+% 定理环境
+\theoremstyle{definition}
+\newtheorem{definition}{\indent 定义}[section]
+
+\newtheorem{lemma}{\indent 引理}[section]
+\newtheorem{theorem}[lemma]{\indent 定理}
+\newtheorem{corollary}[lemma]{\indent 推论}
+\newtheorem{criterion}[lemma]{\indent 准则}
+
+\newtheorem{proposition}{\indent 命题}[section]
+\newtheorem{example}{\indent \color{SeaGreen}{例}}[section]
+\theoremstyle{plain}
+\newtheorem*{remark}{\indent 注}
+\renewenvironment{proof}{\indent\textcolor{SkyBlue}{\textbf{证明.}}\;}{\qed\par}
+\newenvironment{solution}{\indent\textcolor{SkyBlue}{\textbf{解.}}\;}{\qed\par}

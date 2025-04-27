@@ -1,0 +1,55 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+% 内容
+    \chapter{模板说明}
+
+    当时写这个模板时，是一边写笔记一边改模板，后续又经过几次完善调整。模板尽可能的简约，基础骨架基本完整，以文件夹结构形式拆分 tex 文件的章节，避免所有内容都堆积在一个 tex 文件上。
+
+    \section{模板结构}
+
+    \begin{table}[htbp!]
+        \centering
+        % 自适应大小
+        \resizebox{\linewidth}{!}{
+            \begin{tabular}{|l|l|}
+                \hline
+                文件名            & 说明            \\
+                \hline
+                main.tex  & 主文件（编译全部章节） \\
+                \hline
+                figure       & 存放图像文件的文件夹  \\
+                \hline
+                config/\_config.tex & 配置文件（可配置定理环境、封面样式）  \\
+                \hline
+                config/package.tex      & 引入的包和基础配置 \\
+                \hline
+                config/cover.tex        & 前言、目录  \\
+                \hline
+                config/custom.tex     & 自定义命令 \\
+                \hline
+                theorem[*].tex / cover\_[*].tex    & 定理环境 / 封面  具体配置 \\
+                \hline
+                chap[*]/chap.tex    & 单独的章节文件 \\
+                \hline
+            \end{tabular}
+        }
+    \end{table}
+
+    \section{编译}
+
+    直接单独编译chap[*]/chap.tex 或 main.tex 即可，有些情况下，需要编译两次是正常的（如封面图片、交叉引用等）。
+
+    编译环境：TeX Live 2022+，编译方式：XeLaTex。
+
+% 
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
