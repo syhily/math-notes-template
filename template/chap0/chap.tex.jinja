@@ -1,0 +1,25 @@
+{% raw %}\ifx\allfiles\undefined{% endraw %}
+{% if notebook_language == "en" %}{% raw %}\documentclass[12pt, a4paper, oneside, UTF8]{book}{% endraw %}{% else %}{% raw %}\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}{% endraw %}{% endif %}
+{% raw %}\def\path{../config}
+\input{../config/_config}
+\begin{document}
+\input{../config/cover}
+\fi
+
+\chapter{Math Equation Examples}
+
+Example 1
+
+\[
+    \frac{a}{b} = c
+\]
+
+Example 2
+
+\[
+    \frac{a}{b} = c
+\]
+
+\ifx\allfiles\undefined
+\end{document}
+\fi{% endraw %}

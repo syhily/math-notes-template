@@ -1,9 +1,9 @@
 all: build
 
 build:
-	echo "Build the tutorial PDF"
+	echo "Build the notebook"
 	# We need to build twice for making the cover being correctly displayed.
-	cd tutorial && xelatex main.tex && xelatex main.tex && mv main.pdf tutorial.pdf && cd ..
+	xelatex main.tex && xelatex main.tex
 
 clean:
 	echo "Remove the build cache"
@@ -14,4 +14,4 @@ clean:
 	find . -name "*.synctex.gz" -type f -exec rm -rf {} \;
 	find . -name "*.toc" -type f -exec rm -rf {} \;
 
-.PHONY: all build clean
+.PHONY: all clean

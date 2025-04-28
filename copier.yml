@@ -1,15 +1,59 @@
 # This is the template configuration for copier
 
-## Exclusions
-_exclude:
-    - ".git"
-    - ".github"
-    - "copier.yml"
-    - "Makefile"
-    - "LICENSE"
-    - "tutorial"
+## The folder for storing all the files to generate the LaTeX notebook project
+_subdirectory: template
 
-## questions
+## Settings the files on demand.
+_tasks:
+  - command: rm config/cover_package_ci.pdf
+    when: "{{ _copier_conf.os in  ['linux', 'macos'] and cover_style != 1 }}"
+  - command: Remove-Item config/cover_package_ci.pdf
+    when: "{{ _copier_conf.os == 'windows' and cover_style != 1 }}"
+  - command: rm config/cover_package_bg.jpg
+    when: "{{ _copier_conf.os in  ['linux', 'macos'] and cover_style != 3 }}"
+  - command: Remove-Item config/cover_package_bg.jpg
+    when: "{{ _copier_conf.os == 'windows' and cover_style != 3 }}"
+  - command: rm config/cover_package.tex
+    when: "{{ _copier_conf.os in  ['linux', 'macos'] and cover_style == 0 }}"
+  - command: Remove-Item config/cover_package.tex
+    when: "{{ _copier_conf.os == 'windows' and cover_style == 0 }}"
+
+## Question Settings
 notebook_language:
-    type: str
-    help: What is your prefer language [zh, en]?
+  type: str
+  help: What is your prefer language?
+  choices:
+    Chinese: zh
+    English: en
+
+cover_style:
+  type: int
+  help: What is your prefer cover style?
+  choices:
+    Blank: 0
+    TeXromancers: 1
+    Grey: 2
+    Splash: 3
+
+theorem_style:
+  type: int
+  help: What is your prefer theorem style?
+  choices:
+    Simple: 0
+    Complex: 1
+
+notebook_name:
+  type: str
+  help: What's your notebook name?
+  validator: >-
+    {% if not (notebook_name) %}
+      Notebook name is required!
+    {% endif %}
+
+author_name:
+  type: str
+  help: What's the author name?
+  validator: >-
+    {% if not (author_name) %}
+      Notebook name is required!
+    {% endif %}
