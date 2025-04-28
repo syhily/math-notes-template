@@ -1,7 +1,8 @@
-all: tutorial
+all: build
 
-tutorial:
+build:
 	echo "Build the tutorial PDF"
+	# We need to build twice for making the cover being correctly displayed.
 	cd tutorial && xelatex main.tex && xelatex main.tex && mv main.pdf tutorial.pdf && cd ..
 
 clean:
@@ -13,4 +14,4 @@ clean:
 	find . -name "*.synctex.gz" -type f -exec rm -rf {} \;
 	find . -name "*.toc" -type f -exec rm -rf {} \;
 
-.PHONY: all tutorial clean
+.PHONY: all build clean

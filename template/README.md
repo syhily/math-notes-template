@@ -1,4 +1,4 @@
-# How to write document
+# Writing Guide
 
 ## `main.tex` is the entrypoint file
 
@@ -22,9 +22,9 @@
 \input{\path/package.tex}
 
 % Custom theorem field
-\input{\path/theorem1.tex}
+\input{\path/theorem.tex}
 
-% Custom command.
+% Custom command
 \input{\path/custom.tex}
 
 % The notebook title
@@ -94,7 +94,7 @@ Here is an example content for teaching you how to add the custom commands.
 ## `chap[number]/chap.tex` is the file for each chapter
 
 The default content for one chapter is shown like below example.
-Replace the comment with the content you would like to write.
+Replace the comment `% Main Content` with the content you would like to write.
 
 ```latex
 \ifx\allfiles\undefined

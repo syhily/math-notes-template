@@ -1,7 +1,7 @@
 all: build
 
 build:
-	echo "Build the PDF"
+	echo "Build the notebook"
 	# We need to build twice for making the cover being correctly displayed.
 	xelatex main.tex && xelatex main.tex && mv main.pdf
 
