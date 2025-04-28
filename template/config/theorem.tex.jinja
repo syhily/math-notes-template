@@ -1,0 +1,133 @@
+{% if notebook_language == 'en' and theorem_style == 0 %}{% raw %}\theoremstyle{definition}
+\newtheorem{definition}{\indent Definition}[section]
+
+\newtheorem{lemma}{\indent Lemma}[section]
+\newtheorem{theorem}[lemma]{\indent Theorem}
+\newtheorem{corollary}[lemma]{\indent Corollary}
+\newtheorem{criterion}[lemma]{\indent Criterion}
+
+\newtheorem{proposition}{\indent Proposition}[section]
+\newtheorem{example}{\indent \color{SeaGreen}{Example}}[section]
+\theoremstyle{plain}
+\newtheorem*{remark}{\indent Remark}
+\renewenvironment{proof}{\indent\textcolor{SkyBlue}{\textbf{Proof.}}\;}{\qed\par}
+\newenvironment{solution}{\indent\textcolor{SkyBlue}{\textbf{Solution.}}\;}{\qed\par}{% endraw %}{% elif notebook_language == 'en' and theorem_style == 1 %}{% raw %}\usepackage[strict]{changepage}
+\usepackage{framed}
+
+\definecolor{greenshade}{rgb}{0.90,1,0.92}
+\definecolor{redshade}{rgb}{1.00,0.88,0.88}
+\definecolor{brownshade}{rgb}{0.99,0.95,0.9}
+\definecolor{lilacshade}{rgb}{0.95,0.93,0.98}
+\definecolor{orangeshade}{rgb}{1.00,0.88,0.82}
+\definecolor{lightblueshade}{rgb}{0.8,0.92,1}
+\definecolor{purple}{rgb}{0.81,0.85,1}
+
+\theoremstyle{definition}
+\newtheorem{myDefn}{\indent Definition}[section]
+\newtheorem{myLemma}{\indent Lemma}[section]
+\newtheorem{myThm}[myLemma]{\indent Theorem}
+\newtheorem{myCorollary}[myLemma]{\indent Corollary}
+\newtheorem{myCriterion}[myLemma]{\indent Criterion}
+\newtheorem*{myRemark}{\indent Remark}
+\newtheorem{myProposition}{\indent Proposition}[section]
+
+\newenvironment{formal}[2][]{%
+	\def\FrameCommand{%
+		\hspace{1pt}%
+		{\color{#1}\vrule width 2pt}%
+		{\color{#2}\vrule width 4pt}%
+		\colorbox{#2}%
+	}%
+	\MakeFramed{\advance\hsize-\width\FrameRestore}%
+	\noindent\hspace{-4.55pt}%
+	\begin{adjustwidth}{}{7pt}\vspace{2pt}\vspace{2pt}}{%
+		\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+\newenvironment{definition}{\vspace{-\baselineskip * 2 / 3}%
+	\begin{formal}[Green]{greenshade}\vspace{-\baselineskip * 4 / 5}\begin{myDefn}}
+	{\end{myDefn}\end{formal}\vspace{-\baselineskip * 2 / 3}}
+
+\newenvironment{theorem}{\vspace{-\baselineskip * 2 / 3}%
+	\begin{formal}[LightSkyBlue]{lightblueshade}\vspace{-\baselineskip * 4 / 5}\begin{myThm}}%
+	{\end{myThm}\end{formal}\vspace{-\baselineskip * 2 / 3}}
+
+\newenvironment{lemma}{\vspace{-\baselineskip * 2 / 3}%
+	\begin{formal}[Plum]{lilacshade}\vspace{-\baselineskip * 4 / 5}\begin{myLemma}}%
+	{\end{myLemma}\end{formal}\vspace{-\baselineskip * 2 / 3}}
+
+\newenvironment{corollary}{\vspace{-\baselineskip * 2 / 3}%
+	\begin{formal}[BurlyWood]{brownshade}\vspace{-\baselineskip * 4 / 5}\begin{myCorollary}}%
+	{\end{myCorollary}\end{formal}\vspace{-\baselineskip * 2 / 3}}
+
+\newenvironment{criterion}{\vspace{-\baselineskip * 2 / 3}%
+	\begin{formal}[DarkOrange]{orangeshade}\vspace{-\baselineskip * 4 / 5}\begin{myCriterion}}%
+	{\end{myCriterion}\end{formal}\vspace{-\baselineskip * 2 / 3}}
+
+\newenvironment{remark}{\vspace{-\baselineskip * 2 / 3}%
+	\begin{formal}[LightCoral]{redshade}\vspace{-\baselineskip * 4 / 5}\begin{myRemark}}%
+	{\end{myRemark}\end{formal}\vspace{-\baselineskip * 2 / 3}}
+
+\newenvironment{proposition}{\vspace{-\baselineskip * 2 / 3}%
+	\begin{formal}[RoyalPurple]{purple}\vspace{-\baselineskip * 4 / 5}\begin{myProposition}}%
+	{\end{myProposition}\end{formal}\vspace{-\baselineskip * 2 / 3}}
+
+\newtheorem{example}{\indent \color{SeaGreen}{Example}}[section]
+\renewcommand{\proofname}{\indent\textbf{\textcolor{TealBlue}{Proof}}}
+\newenvironment{solution}{\begin{proof}[\indent\textbf{\textcolor{TealBlue}{Solution}}]}{\end{proof}}{% endraw %}{% elif notebook_language == 'zh' and theorem_style == 0 %}{% raw %}\theoremstyle{definition}
+\newtheorem{definition}{\indent 定义}[section]
+
+\newtheorem{lemma}{\indent 引理}[section]
+\newtheorem{theorem}[lemma]{\indent 定理}
+\newtheorem{corollary}[lemma]{\indent 推论}
+\newtheorem{criterion}[lemma]{\indent 准则}
+
+\newtheorem{proposition}{\indent 命题}[section]
+\newtheorem{example}{\indent \color{SeaGreen}{例}}[section]
+\theoremstyle{plain}
+\newtheorem*{remark}{\indent 注}
+\renewenvironment{proof}{\indent\textcolor{SkyBlue}{\textbf{证明.}}\;}{\qed\par}
+\newenvironment{solution}{\indent\textcolor{SkyBlue}{\textbf{解.}}\;}{\qed\par}{% endraw %}{% elif notebook_language == 'zh' and theorem_style == 1 %}{% raw %}\usepackage[strict]{changepage}
+\usepackage{framed}
+
+\definecolor{greenshade}{rgb}{0.90,1,0.92}
+\definecolor{redshade}{rgb}{1.00,0.88,0.88}
+\definecolor{brownshade}{rgb}{0.99,0.95,0.9}
+\definecolor{lilacshade}{rgb}{0.95,0.93,0.98}
+\definecolor{orangeshade}{rgb}{1.00,0.88,0.82}
+\definecolor{lightblueshade}{rgb}{0.8,0.92,1}
+\definecolor{purple}{rgb}{0.81,0.85,1}
+
+\theoremstyle{definition}
+\newtheorem{myDefn}{\indent 定义}[section]
+\newtheorem{myLemma}{\indent 引理}[section]
+\newtheorem{myThm}[myLemma]{\indent 定理}
+\newtheorem{myCorollary}[myLemma]{\indent 推论}
+\newtheorem{myCriterion}[myLemma]{\indent 准则}
+\newtheorem*{myRemark}{\indent 注}
+\newtheorem{myProposition}{\indent 命题}[section]
+
+\newenvironment{formal}[2][]{%
+    \def\FrameCommand{%
+        \hspace{1pt}%
+        {\color{#1}\vrule width 2pt}%
+        {\color{#2}\vrule width 4pt}%
+        \colorbox{#2}%
+    }%
+    \MakeFramed{\advance\hsize-\width\FrameRestore}%
+    \noindent\hspace{-4.55pt}%
+    \begin{adjustwidth}{}{7pt}\vspace{2pt}\vspace{2pt}}{%
+        \vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+\newenvironment{definition}{\begin{formal}[Green]{greenshade}\vspace{-\baselineskip / 2}\begin{myDefn}}{\end{myDefn}\end{formal}}
+\newenvironment{theorem}{\begin{formal}[LightSkyBlue]{lightblueshade}\vspace{-\baselineskip / 2}\begin{myThm}}{\end{myThm}\end{formal}}
+\newenvironment{lemma}{\begin{formal}[Plum]{lilacshade}\vspace{-\baselineskip / 2}\begin{myLemma}}{\end{myLemma}\end{formal}}
+\newenvironment{corollary}{\begin{formal}[BurlyWood]{brownshade}\vspace{-\baselineskip / 2}\begin{myCorollary}}{\end{myCorollary}\end{formal}}
+\newenvironment{criterion}{\begin{formal}[DarkOrange]{orangeshade}\vspace{-\baselineskip / 2}\begin{myCriterion}}{\end{myCriterion}\end{formal}}
+\newenvironment{remark}{\begin{formal}[LightCoral]{redshade}\vspace{-\baselineskip / 2}\begin{myRemark}}{\end{myRemark}\end{formal}}
+\newenvironment{proposition}{\begin{formal}[RoyalPurple]{purple}\vspace{-\baselineskip / 2}\begin{myProposition}}{\end{myProposition}\end{formal}}
+
+\newtheorem{example}{\indent \color{SeaGreen}{例}}[section]
+\renewcommand{\proofname}{\indent\textbf{\textcolor{TealBlue}{证明}}}
+\newenvironment{solution}{\begin{proof}[\indent\textbf{\textcolor{TealBlue}{解}}]}{\end{proof}}{% endraw %}{% endif %}

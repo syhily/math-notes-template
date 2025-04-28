@@ -36,7 +36,7 @@ cover_style:
     Splash: 3
 
 theorem_style:
-  type: bool
+  type: int
   help: What is your prefer theorem style?
   choices:
     Simple: 0

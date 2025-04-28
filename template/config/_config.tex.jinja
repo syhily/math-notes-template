@@ -1,14 +1,14 @@
 {% raw %}\input{\path/package.tex}
 
-\input{\path/theorem1.tex}
+\input{\path/theorem.tex}
 
 \input{\path/custom.tex}{% endraw %}{% if cover_style != 0 %}{% raw %}
 
 \input{\path/cover_package.tex}{% endraw %}{% endif %}
 
-{% raw %}\def\myTitle{标题：一份LaTeX笔记模板}
-\def\myAuthor{作者名称}
-\def\myDateCover{封面日期：\today}
+{% raw %}\def\myTitle{{% endraw %}{{ notebook_name }}{% raw %}}{% endraw %}
+{% raw %}\def\myAuthor{{% endraw %}{{ author_name }}{% raw %}}{% endraw %}
+{% raw %}\def\myDateCover{封面日期：\today}
 \def\myDateForeword{前言页显示日期：\today}
 \def\myForeword{前言标题}
 \def\myForewordText{
