@@ -1,9 +1,11 @@
 all: tutorial
 
 tutorial:
+	echo "Build the tutorial PDF"
 	cd tutorial && xelatex main.tex && mv main.pdf tutorial.pdf && cd ..
 
 clean:
+	echo "Remove the build cache"
 	find . -name "*.aux" -type f -exec rm -rf {} \;
 	find . -name "*.log" -type f -exec rm -rf {} \;
 	find . -name "*.out" -type f -exec rm -rf {} \;
