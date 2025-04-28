@@ -26,3 +26,19 @@ theorem_style:
   choices:
     Simple: 0
     Complex: 1
+
+notebook_name:
+  type: str
+  help: What's your notebook name?
+  validator: >-
+    {% if not (notebook_name) %}
+      Notebook name is required!
+    {% endif %}
+
+author_name:
+  type: str
+  help: What's the author name?
+  validator: >-
+    {% if not (author_name) %}
+      Notebook name is required!
+    {% endif %}

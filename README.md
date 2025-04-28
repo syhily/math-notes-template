@@ -1,6 +1,6 @@
 # Mathematic Notebook Template
 
-$\displaystyle \mathrm{Edition\ (e)} = \sum \limits _{n=0}^{\infty }{\frac {1}{n!}} = 1 + {\frac {1}{1}}+{\frac {1}{1\cdot 2}}+{\frac {1}{1\cdot 2\cdot 3}}+\cdots = 2.71$
+$\displaystyle \mathrm{Edition\ (e)} = \sum \limits _{n=0}^{\infty }{\frac {1}{n!}} = 1 + {\frac {1}{1}}+{\frac {1}{1\cdot 2}}+{\frac {1}{1\cdot 2\cdot 3}}+\cdots = 2.718$
 
 [![Build](https://github.com/syhily/math-notes-template/actions/workflows/build.yml/badge.svg)](https://github.com/syhily/math-notes-template/actions/workflows/build.yml) [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border.json)](https://github.com/copier-org/copier)
 
@@ -18,3 +18,6 @@ You need to install the copier first and execute the command shown below.
 # You must replace the target_directory with the directory path you want to place your LaTeX notebook.
 copier copy --vcs-ref=HEAD gh:syhily/math-notes-template.git target_directory
 ```
+
+Open the project directory by using the [VSCode](https://code.visualstudio.com/),
+a dialog will be prompted to inform you need install the recommend plugins.

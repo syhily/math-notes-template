@@ -1,11 +1,13 @@
-# Writing Guide
+# {{ notebook_name }}
 
-## `main.tex` is the entrypoint file
+{% raw %}## How to configure this notebook
+
+### `main.tex` is the entrypoint file
 
 ```latex
-\def\allfiles{}
-\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
-\def\path{./config}
+\def\allfiles{}{% endraw %}
+{% if notebook_language == "en" %}{% raw %}\documentclass[12pt, a4paper, oneside, UTF8]{book}{% endraw %}{% else %}{% raw %}\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}{% endraw %}{% endif %}
+{% raw %}\def\path{./config}
 \input{config/_config}
 \begin{document}
 \include{config/cover}
@@ -15,7 +17,7 @@
 \end{document}
 ```
 
-## `config/_config.tex` is the configuration file
+### `config/_config.tex` is the configuration file
 
 ```latex
 % All the packages used in your LaTeX project. Add new packages here instead of elsewhere.
@@ -53,7 +55,7 @@
 \def\mySubheading{格物致知，慎思明辨}
 ```
 
-## `config/custom.tex` is the custom command
+### `config/custom.tex` is the custom command
 
 Here is an example content for teaching you how to add the custom commands.
 
@@ -91,15 +93,15 @@ Here is an example content for teaching you how to add the custom commands.
 \newcommand{\rotn}[1][A]{\mathrm{rot}\;\bs{#1}}
 ```
 
-## `chap[number]/chap.tex` is the file for each chapter
+### `chap[number]/chap.tex` is the file for each chapter
 
 The default content for one chapter is shown like below example.
 Replace the comment `% Main Content` with the content you would like to write.
 
 ```latex
-\ifx\allfiles\undefined
-\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
-\def\path{../config}
+\ifx\allfiles\undefined{% endraw %}
+{% if notebook_language == "en" %}{% raw %}\documentclass[12pt, a4paper, oneside, UTF8]{book}{% endraw %}{% else %}{% raw %}\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}{% endraw %}{% endif %}
+{% raw %}\def\path{../config}
 \input{../config/_config}
 \begin{document}
 \fi
@@ -107,4 +109,4 @@ Replace the comment `% Main Content` with the content you would like to write.
 \ifx\allfiles\undefined
 \end{document}
 \fi
-```
+```{% endraw %}

@@ -106,6 +106,7 @@
     "documentclass",
     "dtmp",
     "emphstyle",
+    "endraw",
     "freefont",
     "infty",
     "latexmk",
