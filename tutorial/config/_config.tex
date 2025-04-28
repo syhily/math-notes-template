@@ -1,16 +1,11 @@
 \input{\path/package.tex}
 
 % 定理环境设置
-\input{\path/theorem1.tex}
+\input{\path/theorem.tex}
 
 \input{\path/custom.tex}
 
-% 修改参数改变封面样式，0 默认原始封面、内置其他1、2、3种封面样式
-\def\myIndex{1}
-
-\ifnum\myIndex>0
-    \input{\path/cover_package_\myIndex}
-\fi
+\input{\path/cover_package}
 
 \def\myTitle{标题：一份LaTeX笔记模板}
 \def\myAuthor{作者名称}

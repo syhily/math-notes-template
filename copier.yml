@@ -1,15 +1,37 @@
 # This is the template configuration for copier
 
+## The folder for storing all the files to generate the LaTeX notebook project
+_folder_name: template
+
 ## Exclusions
 _exclude:
-    - ".git"
-    - ".github"
-    - "copier.yml"
-    - "Makefile"
-    - "LICENSE"
-    - "tutorial"
+  - ".git"
+  - ".github"
+  - "copier.yml"
+  - "Makefile"
+  - "LICENSE"
+  - "tutorial"
 
 ## questions
 notebook_language:
-    type: str
-    help: What is your prefer language [zh, en]?
+  type: str
+  help: What is your prefer language?
+  choices:
+    - Chinese
+    - English
+
+cover_style:
+  type: str
+  help: What is your prefer cover style?
+  choices:
+    - Blank
+    - TeXromancers
+    - Grey
+    - Splash
+
+theorem_style:
+  type: str
+  help: What is your prefer theorem style?
+  choices:
+    - Simple
+    - Complex
