@@ -15,8 +15,8 @@ This template is working on top of the [copier](https://github.com/copier-org/co
 You need to install the copier first and execute the command shown below.
 
 ```bash
-# You can replace the . with the directory you want to place your LaTeX notebook.
-copier gh:syhily/math-notes-template .
+# You must replace the target_directory with the directory path you want to place your LaTeX notebook.
+copier copy gh:syhily/math-notes-template target_directory
 ```
 
 ## How to write document
@@ -123,7 +123,6 @@ Replace the comment with the content you would like to write.
 \def\path{../config}
 \input{../config/_config}
 \begin{document}
-\else
 \fi
 % Main Content
 \ifx\allfiles\undefined
