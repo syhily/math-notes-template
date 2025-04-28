@@ -93,26 +93,8 @@
         \mySubheading \par
     };
 
-    \node (coverinfo)
-    [text=black]
-    at ($(current page.center)!0.825!(current page.south)$)
-    {
-        \fontsize{1.5em}{1em}
-        \fontfamily{lmss}
-        \selectfont
-        Revised and modernized edition by \par
-    };
-    \node
-    [text=black]
-    at ($(current page.center)!0.9!(current page.south)$)
-    {
-        \includegraphics[height=3em]{cover_package_1_texromancers.pdf}
-        \raisebox{1.1em}{
-            \fontsize{1.5em}{1em}\selectfont\TeX{}romancers\par
-        }
-    };
     \node (coverpic)
-    at ($(title.south)!0.5!(coverinfo.north)$)
+    at ($(title.south)!0.5!(current page.south)$)
     {
         \includegraphics[height=21em]{cover_package_1_ci.pdf}
     };
