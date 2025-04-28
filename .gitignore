@@ -23,6 +23,7 @@ semantic.cache
 *.aux
 *.log
 *.out
+.copier-answers.yml
 
 # Project Files
 !cover_package_1_ci.pdf

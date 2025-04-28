@@ -1,0 +1,15 @@
+# This is the template configuration for copier
+
+## Exclusions
+_exclude:
+    - ".git"
+    - ".github"
+    - "copier.yml"
+    - "Makefile"
+    - "LICENSE"
+    - "tutorial"
+
+## questions
+notebook_language:
+    type: str
+    help: What is your prefer language [zh, en]?
