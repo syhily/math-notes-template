@@ -1,12 +1,14 @@
-all: template sample
+all: tutorial
 
-template:
-	cd template && xelatex main.tex && mv main.pdf template.pdf && cd ..
-
-sample:
-	cd sample && xelatex main.tex && mv main.pdf sample.pdf && cd ..
+tutorial:
+	cd tutorial && xelatex main.tex && mv main.pdf tutorial.pdf && cd ..
 
 clean:
+	find . -name "*.aux" -type f -exec rm -rf {} \;
+	find . -name "*.log" -type f -exec rm -rf {} \;
+	find . -name "*.out" -type f -exec rm -rf {} \;
 	find . -name "*.pdf" -type f -exec rm -rf {} \;
+	find . -name "*.synctex.gz" -type f -exec rm -rf {} \;
+	find . -name "*.toc" -type f -exec rm -rf {} \;
 
-.PHONY: all template sample clean
+.PHONY: all tutorial clean
