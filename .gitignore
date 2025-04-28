@@ -23,3 +23,7 @@ semantic.cache
 *.aux
 *.log
 *.out
+
+# Project Files
+!cover_package_1_ci.pdf
+!cover_package_1_texromancers.pdf
