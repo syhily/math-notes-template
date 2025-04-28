@@ -10,7 +10,7 @@ clean:
 	find . -name "*.aux" -type f -exec rm -rf {} \;
 	find . -name "*.log" -type f -exec rm -rf {} \;
 	find . -name "*.out" -type f -exec rm -rf {} \;
-	find . -name "*.pdf" -type f ! -name "cover_package_1_ci.pdf" ! -name "cover_package_1_texromancers.pdf" -exec rm -rf {} \;
+	find . -name "*.pdf" -type f ! -name "cover_package_ci.pdf" -exec rm -rf {} \;
 	find . -name "*.synctex.gz" -type f -exec rm -rf {} \;
 	find . -name "*.toc" -type f -exec rm -rf {} \;
 
