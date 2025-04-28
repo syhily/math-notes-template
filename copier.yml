@@ -1,0 +1,10 @@
+# This is the template configuration for copier
+
+## questions
+directory_name:
+    type: str
+    help: What is your notebook directory name (Recommend no space with dash)?
+
+module_name:
+    type: str
+    help: What is your Python module name?
