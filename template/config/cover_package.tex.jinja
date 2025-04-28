@@ -1,4 +1,4 @@
-\usepackage{tikz}
+{% if cover_style == 1 %}{% raw %}\usepackage{tikz}
 \tikzset{>=latex}
 \usetikzlibrary{hobby, calc, intersections, decorations.markings, decorations.pathreplacing}
 
@@ -18,4 +18,15 @@
 \definecolor{tbluelight}{HTML}{86BCD4}
 \definecolor{tbluelighter}{HTML}{EEF8FC}
 \definecolor{tbluedark}{HTML}{156283}
-\definecolor{tbluedarker}{HTML}{033247}
+\definecolor{tbluedarker}{HTML}{033247}{% endraw %}{% elif cover_style == 2 %}{% raw %}\usepackage{tikz}
+\usetikzlibrary{positioning}
+\definecolor{innerblue}{RGB}{134,159,202}
+\definecolor{middleblue}{RGB}{213,222,236}
+\definecolor{outerblue}{RGB}{173,190,220}
+\definecolor{bggray}{RGB}{215,215,215}
+\tikzset{pics/.cd,
+	triple circle/.style={code={
+			\fill[outerblue] (4,0) circle (4);
+			\fill[middleblue] (3.1,0) circle (3.1);
+			\fill[innerblue] (2.2,0) circle (2.2);
+}}}{% endraw %}{% elif cover_style == 3 %}{% raw %}\usepackage{titling}{% endraw %}{% endif %}

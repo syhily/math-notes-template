@@ -1,0 +1,182 @@
+{% if cover_style == 0 %}{% raw %}\title{{\Huge{\textbf{\myTitle}}} \\ \mySubheading}
+\author{\myAuthor}
+\date{\myDateCover}
+\maketitle{% endraw %}{% elif cover_style == 1 %}{% raw %}\begin{tikzpicture}[remember picture,overlay]
+\fill[tyellow] (current page.south west) rectangle (current page.north east);
+\coordinate (start) at ($(current page.east)!0.5!(current page.north east)+(1,-1)$);
+\coordinate (end)   at (current page.north west);
+\foreach \i in {0,0.01,...,1}
+    {
+        \coordinate (point) at ($(start)!\i!(end)$);
+        \draw[tyellowlight]
+        ($(point)+(310*\i:6)$)--
+        ($(point)+(310*\i+120:6)$)--
+        ($(point)+(310*\i+240:6)$)--
+        ($(point)+(310*\i:6)$);
+    }
+\coordinate (start) at (current page.south west);
+\coordinate (end)   at (current page.east);
+\foreach \i in {0,0.02,...,1}
+    {
+        \coordinate (point) at ($(start)!\i!(end)$);
+        \draw[tyellowlight]
+        ($(point)+(310*\i:10)$)--
+        ($(point)+(310*\i+120:10)$)--
+        ($(point)+(310*\i+240:10)$)--
+        ($(point)+(310*\i:10)$);
+    }
+\node (title)
+[shape=rectangle,
+    fill=tbluedark,
+    outer sep=2em,
+    inner sep=2em,
+    minimum height=12em,
+    minimum width=\paperwidth,
+    align=flush right,
+    text=white,
+    text width=0.8\paperwidth,
+    anchor=north
+]
+at ($(current page.center)!0.6!(current page.north)$)
+{
+    \fontsize{4em}{2em}
+    \fontfamily{lmss}
+    \selectfont
+    \myTitle \\
+    \fontsize{0.4em}{0.4em}
+    \fontfamily{lmss}
+    \selectfont
+    \par
+};
+
+\node (author)
+[
+    fill=tblue,
+    inner sep=0.75em,
+    align=flush right,
+    text=white,
+    anchor=east,
+    yshift=-2mm
+]
+at ($(title.north east)-(0.125\paperwidth,0)$)
+{
+    \fontsize{2em}{1em}
+    \fontfamily{lmss}
+    \selectfont
+    \myAuthor \par
+};
+\node
+[
+    fill=tblue,
+    inner sep=0.75em,
+    align=flush left,
+    text=tblue,
+    anchor=west,
+    xshift=-2mm,
+]
+at (author.east)
+{
+    \fontsize{2em}{1em}
+    \fontfamily{lmss}
+    \selectfont
+    \phantom{占位符占位符占位符占位符}\par
+};
+
+\node (subtitle)
+[
+    text=black,
+    align=flush right,
+    anchor=north east
+]
+at ($(title.south east)+(-0.14\paperwidth,0.5)$)
+{
+    \fontsize{1.5em}{1em}
+    \fontfamily{lmss}
+    \selectfont
+    \mySubheading \par
+};
+
+\node (coverpic)
+at ($(title.south)!0.5!(current page.south)$)
+{
+    \includegraphics[height=21em]{cover_package_ci.pdf}
+};
+\end{tikzpicture}{% endraw %}{% elif cover_style == 2 %}{% raw %}\thispagestyle{empty}
+\begin{tikzpicture}[overlay,remember picture]
+    \fill[bggray] (current page.north west) rectangle (current page.south east);
+    \draw[blue!60] ([xshift=-1cm]current page.north)
+    -- ++ (-60:9) pic[rotate=90-60,scale=0.7] {triple circle};
+    \draw[blue!60] (current page.north west)
+    -- ++ (-40:20) pic[rotate=90-40,scale=0.3] {triple circle};
+    \draw[blue!60] ([yshift=-11cm]current page.north east)
+    -- ++ (-110:15) pic[rotate=90-110,scale=0.8] {triple circle};
+    \node[above right=8cm and 2cm of current page.south west,font=\Huge\bfseries,blue!90] (H)
+    {\myTitle};
+    \node[below=2mm of H.south west,anchor=north west,font=\sffamily]{\myAuthor};
+    \node[below=8mm of H.south west,anchor=north west,font=\sffamily]{\myDateCover};
+\end{tikzpicture}
+\clearpage{% endraw %}{% else %}{% raw %}\renewcommand*{\maketitle}{
+    \begin{titlepage}
+        \newgeometry{margin = 0in}
+        \parindent=0pt
+        \includegraphics[width=\linewidth]{cover_package_bg.jpg}
+        \vfill
+        \begin{center}
+            \parbox{0.618\textwidth}{
+                \hfill {\bfseries \Huge \thetitle} \\[0.6pt]
+                \rule{0.618\textwidth}{4pt}
+            }
+        \end{center}
+        \vfill
+        \begin{center}
+            \parbox{0.618\textwidth}{
+                \hfill\Large
+                \begin{tabular}{r|}
+                    \theauthor \\
+                    \thedate   \\
+                \end{tabular}
+            }
+        \end{center}
+        \vfill
+        \begin{center}
+            \parbox[t]{0.7\textwidth}{\centering  }
+        \end{center}
+        \vfill
+    \end{titlepage}
+    \restoregeometry
+    \thispagestyle{empty}
+}
+
+\title{\myTitle}
+\author{\myAuthor}
+\date{\myDateCover}
+\thispagestyle{empty}
+\maketitle{% endraw %}{% endif %}
+
+{% raw %}\newpage
+\thispagestyle{empty}
+\begin{center}
+    \Huge\textbf{\myForeword}
+\end{center}
+\myForewordText
+\begin{flushright}
+    \begin{tabular}{c}
+        \myDateForeword
+    \end{tabular}
+\end{flushright}
+
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\pagenumbering{Roman}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{chapter}{-1}
+\setcounter{page}{1}
+
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}{% endraw %}

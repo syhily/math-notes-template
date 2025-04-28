@@ -16,7 +16,7 @@ You need to install the copier first and execute the command shown below.
 
 ```bash
 # You must replace the target_directory with the directory path you want to place your LaTeX notebook.
-copier copy --vcs-ref=HEAD gh:syhily/math-notes-template.git target_directory
+copier copy --trust --vcs-ref=HEAD gh:syhily/math-notes-template.git target_directory
 ```
 
 Open the project directory by using the [VSCode](https://code.visualstudio.com/),

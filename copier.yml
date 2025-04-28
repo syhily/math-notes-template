@@ -3,6 +3,21 @@
 ## The folder for storing all the files to generate the LaTeX notebook project
 _subdirectory: template
 
+## Settings the files on demand.
+_tasks:
+  - command: rm config/cover_package_ci.pdf
+    when: "{{ _copier_conf.os in  ['linux', 'macos'] and cover_style != 1 }}"
+  - command: Remove-Item config/cover_package_ci.pdf
+    when: "{{ _copier_conf.os == 'windows' and cover_style != 1 }}"
+  - command: rm config/cover_package_bg.jpg
+    when: "{{ _copier_conf.os in  ['linux', 'macos'] and cover_style != 3 }}"
+  - command: Remove-Item config/cover_package_bg.jpg
+    when: "{{ _copier_conf.os == 'windows' and cover_style != 3 }}"
+  - command: rm config/cover_package.tex
+    when: "{{ _copier_conf.os in  ['linux', 'macos'] and cover_style == 0 }}"
+  - command: Remove-Item config/cover_package.tex
+    when: "{{ _copier_conf.os == 'windows' and cover_style == 0 }}"
+
 ## Question Settings
 notebook_language:
   type: str
